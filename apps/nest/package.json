@@ -1,0 +1,22 @@
+{
+  "name": "nest",
+  "type": "module",
+  "scripts": {
+    "check-types": "tsc --noEmit",
+    "check-types:watch": "tsc --noEmit --watch",
+    "dev": "concurrently --kill-others-on-fail --names \"start,types\" \"pnpm start:watch\" \"pnpm check-types:watch\"",
+    "start": "SWCRC=true node --import @swc-node/register/esm-register --enable-source-maps src/main.ts",
+    "start:watch": "SWCRC=true node --import @swc-node/register/esm-register --enable-source-maps --watch src/main.ts"
+  },
+  "dependencies": {
+    "@nestjs/common": "11.1.6",
+    "@nestjs/core": "11.1.6",
+    "@nestjs/platform-express": "11.1.6",
+    "@swc-node/register": "1.11.1",
+    "http-terminator": "3.2.0",
+    "nestjs-graceful-shutdown": "1.0.3"
+  },
+  "devDependencies": {
+    "concurrently": "9.2.1"
+  }
+}
